@@ -1,0 +1,10 @@
+@import './_variables.scss';
+@import './mixins';
+
+* {
+    font-family: $font-montserrat;
+}
+
+.btn-gradient {
+    @include gradientButton()
+}
