@@ -10,3 +10,21 @@
     font-weight: 600;
     font-size: 12px;
 }
+
+@mixin desktop {
+    @media screen and (min-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (min-width: $mobile) {
+        @content
+    }
+}
