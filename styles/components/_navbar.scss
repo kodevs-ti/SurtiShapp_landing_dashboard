@@ -1,0 +1,279 @@
+.navbar{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.35);
+    &.background-nav {
+        background-color: $primary-blue;
+    }
+        
+    .toggler {
+        .navbar-toggler-icon {
+            background-image: $icon-toggle-mobile;
+        }
+        border: 0
+    }
+
+    .nav-link{
+        color: $white !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+
+        &:focus, &:active {
+            color: $white !important;
+        }
+    }
+
+    .btn-login {
+        border: 1.5px solid #dee2e6!important;
+        border-radius: 50px !important;
+        min-width: 150px;
+        min-height: 20%;
+    }
+
+}
+
+.branding {
+    width: 100%;
+    height: 500px;
+    background-image: $img-branding;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    top: 0px;
+    left: 50px;
+
+
+    .branding-blur {
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        background: linear-gradient(180deg, rgba(0, 104, 180, 0.38) 0%, rgba(0, 194, 255, 0.076) 100%, rgba(0, 0, 0, 0.076) 100%);
+        backdrop-filter: blur(3.5px);
+    }
+
+    .paragrapg-branding {
+        p {
+            margin-bottom: -2px;
+            
+            &.p-principal {
+                font-size: 40px;
+            }
+
+            .txt-creemos {
+                font-weight: bold;
+            }
+
+            .txt-comercio {
+                font-weight: 500;
+                font-size: 40px;
+            }
+
+            .txt-regular {
+                font-weight: 500;
+                font-size: 25px;
+            }
+        }
+
+        .img-bottom {
+            max-width: 75%;
+            margin-top: -15%;
+            padding-bottom: 5%;
+            margin-right: 22%; //->8
+        }
+    }
+    
+}
+
+.stadistic {
+    background-color: $secondary-blue;
+    width: 100%;
+    color: $gray-light;
+    
+    .card-img-chart {
+        max-width: 140px;
+        margin-bottom: -25px !important;
+    }
+
+    .card-charts {
+        width: 75%;
+        max-width: 55%;
+        border: none;
+        border-radius: 35px;
+        box-shadow: 0px 0px 9.43994px rgba($primary-blue, 0.1);
+    }
+
+    .p-size {
+        width: 270px;
+    }
+
+    .txt-600 {
+    font-weight: 600;
+    }
+
+    .paragrapg-stadistics {
+        p {
+            margin-bottom: -2px;
+            
+            &.p-principal {
+                font-size: 40px;
+            }
+
+            .txt-creemos {
+                font-weight: bold;
+            }
+
+            .txt-comercio {
+                font-weight: 500;
+                font-size: 40px;
+            }
+
+            .txt-regular {
+                font-weight: 500;
+                font-size: 25px;
+            }
+        }
+
+        .img-bottom {
+            max-width: 75%;
+            margin-top: -15%;
+            margin-left: 25%;
+        }
+    }
+}
+
+.how-is {
+    background-color: $primary-blue;
+    width: 100%;
+
+    .regular-size {
+        font-size: 25px;
+    }
+}
+
+.features {
+    background-color: $secondary-blue;
+    width: 100%;
+    color: $gray-light;
+    
+    .card-img-chart {
+        max-width: 140px;
+        margin-bottom: -25px !important;
+    }
+
+    .card-charts {
+        width: 75%;
+        max-width: 90%;
+        border: none;
+        border-radius: 35px;
+        box-shadow: 0px 0px 9.43994px rgba($primary-blue, 0.1);
+    }
+
+    .background-blue {
+        background-color: $primary-blue;
+    }
+}
+
+.footer {
+    background-color: $primary-blueDark;
+    width: 100%;
+
+    .regular-size {
+        font-size: 25px;
+    }
+
+    .footer-slogan {
+        .img-bottom {
+            max-width: 75%;
+            margin-top: -20%;
+            margin-left: 25%;
+        }
+    }
+
+    .btn-prueba {
+        @include gradientButton();
+    }
+
+    .btn-reserva {
+        @include gradientButton();
+        border: 1.5px solid #dee2e6!important;
+        border-radius: 50px !important;
+        min-width: 150px;
+        min-height: 20%;
+        background-image: none;
+        background-color: transparent;
+    }
+
+    .img-footer-logo{
+        width: 150px;
+    }
+
+    .style-footer {
+        color: $gray-light-copy;
+    }
+
+    .img-footer-youtube{
+        max-width: 35%;
+    }
+
+    .img-footer-faceboock {
+        max-width: 15%;
+    }
+    
+}
+
+
+/*For branding*/
+
+@include desktop {
+    .branding {
+        height: 800px;
+   
+        .branding-blur {
+            width: 100%;
+            height: 800px;
+            backdrop-filter: blur(4.5px);
+        }
+
+        .paragrapg-branding {
+   
+            .img-bottom {
+                max-width: 45%;
+                margin-top: -5%;
+                margin-right: 0;
+            }
+        }        
+    }
+
+    .stadistic {
+        
+        .paragrapg-stadistics {
+            .img-bottom {
+                max-width: 40%;
+                margin-left: 0%;
+                margin-top: -8%;
+            }
+        }
+    }
+
+    .footer {
+ 
+        .footer-slogan {
+            .img-bottom {
+                max-width: 40%;
+                margin-left: 35%;
+                margin-top: -10%;
+            }
+        }
+
+        .content-social-networks {
+            padding-left: 50%;
+        }
+    }
+}
