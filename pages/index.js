@@ -1,9 +1,12 @@
-import Landing from '../components/Layout/Landing'
+import Layout from '../components/Layout/Container'
 
-export default function Home () {
+import Navbar from '../components/Navbar'
+
+export default function Landing () {
   return (
-    <>
-      <Landing />
-    </>
+    <Layout>
+      <Navbar />
+
+    </Layout>
   )
 }

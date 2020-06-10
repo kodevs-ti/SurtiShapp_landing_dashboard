@@ -1,0 +1,7 @@
+* {
+    font-family: $font-montserrat;
+}
+
+.btn-gradient {
+    @include gradientButton()
+}

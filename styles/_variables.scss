@@ -15,6 +15,7 @@ $gray-light-copy: #595A6D;
 // landing
 $primary-blue: #00A3FF;
 $primary-blueDark: #1B1F51;
+$secondary-blue: #F6FAFD;
 
 $gradient-1: #63C7FF;
 $gradient-2: #00A3FF;
@@ -29,3 +30,9 @@ $gray-light-bg: #F8F8F8;
 $mobile: 375px;
 $tablet: 768px;
 $desktop: 1024px;
+
+//Images for Landing
+
+$icon-toggle-mobile: url('../../public/img/common/toggle-mobile.svg');
+$icon-mobile: url('../../public/img/common/logo.svg');
+$img-branding: url('../../public/img/common/brandingn.svg');
