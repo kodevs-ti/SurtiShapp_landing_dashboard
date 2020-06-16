@@ -1,0 +1,104 @@
+.login-container {
+    width: 100%;
+    margin-top: 100px;
+    background-color: $white;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+
+    .title-login {
+        color: $primary-blue;
+    }
+
+    .bg-login {
+        width: 50%;
+    }
+
+    .bg-promotion {
+        width: 50%;
+        background-color: $primary-blue;
+        border-radius: 0 10px 10px 0;
+
+        .p-promotion {
+            color: #80D1FF;
+        }
+    }
+
+    .form-login {
+        padding: 0 20px;
+        .inputStyle {
+            @include styleInput();
+        }
+      
+        .label-style {
+            @include styleLabel()
+        }
+    
+        .icon-inside-input {
+            position: relative;
+            .icon {
+                position: absolute;
+    
+                &.icon-user {
+                    background-image: $icon-user-login;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 15px;
+                    height: 15px;
+                    top: 18px;
+                    left: 14px;
+                }
+                &.icon-padlock{
+                    background-image: $icon-padlock;
+                    background-repeat: no-repeat;
+                    width: 17px;
+                    height: 17px;
+                    top: 17px;
+                    left: 15px;
+                }
+            }
+        }
+    
+        .text-alert {
+            color: $primary-red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            .icon-error {
+                background-image: $icon-error;
+                background-repeat: no-repeat;
+                width: 17px;
+                height: 17px;
+                margin-right: 5px;
+            }
+            p{
+                margin:0;
+            }
+        }
+    
+    
+        // error
+        .inputErrorEmail {
+            @include styleInputError()
+        }
+        
+        .inputErrorPassword {
+            @include styleInputError()
+        }
+    }
+
+    .footer-login {
+        background-color: $bg-footer-login;
+        font-weight: 500;
+        border-radius: 10px;
+        
+        .link-register {
+            cursor: pointer;
+            color: $primary-blue;
+            font-weight: 500;
+        }
+    }
+
+
+}
+

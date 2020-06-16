@@ -6,14 +6,16 @@ $font-poppins: 'Poppins', sans-serif;
 // colors
 $white: #ffffff;
 $black: #000000;
+$primary-red:#F84651;
 
 // fonts
+$gray: #616575;
 $gray-dark: #575757;
 $gray-light: #616575;
 $gray-light-copy: #595A6D;
 
 // landing
-$primary-blue: #00A3FF;
+$primary-blue: #00B0FF;
 $primary-blueDark: #1B1F51;
 $secondary-blue: #F6FAFD;
 
@@ -26,6 +28,9 @@ $bg-sidebar: #5B6775;
 
 $gray-light-bg: #F8F8F8;
 
+// footer Login
+$bg-footer-login: rgba(128, 209, 255, 0.75);
+
 /*Break points*/
 $mobile: 375px;
 $tablet: 768px;
@@ -36,3 +41,9 @@ $desktop: 1024px;
 $icon-toggle-mobile: url('../../public/img/common/toggle-mobile.svg');
 $icon-mobile: url('../../public/img/common/logo.svg');
 $img-branding: url('../../public/img/common/brandingn.svg');
+$icon-user-login: url('../../public/img/icon/user-icon.svg');
+$icon-padlock: url('../../public/img/icon/padlock-icon.svg');
+$icon-error: url('../../public/img/icon/error-icon-empty.svg');
+$icon-store: url('../../public/img/icon/icon-stor.svg');
+$icon-email: url('../../public/img/icon/mail.svg');
+$icon-phone: url('../../public/img/icon/phone.svg');

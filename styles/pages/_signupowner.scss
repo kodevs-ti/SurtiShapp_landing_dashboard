@@ -1,0 +1,122 @@
+.login-container {
+
+    .scroll {
+        background-color: inherit;
+        width: 100%;
+        max-height: calc(100vh - 472px);
+        height: calc(100vh - 122px);
+        overflow-y: scroll;
+    }
+    .scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .form-register-owner{
+        padding: 0 20px;
+        .inputStyle {
+            @include styleInput();
+        }
+      
+        .label-style {
+            @include styleLabel()
+        }
+    
+        .icon-inside-input {
+            position: relative;
+            .icon {
+                position: absolute;
+    
+                &.icon-user {
+                    background-image: $icon-user-login;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 15px;
+                    height: 15px;
+                    top: 18px;
+                    left: 14px;
+                }
+                &.icon-padlock {
+                    background-image: $icon-padlock;
+                    background-repeat: no-repeat;
+                    width: 17px;
+                    height: 17px;
+                    top: 17px;
+                    left: 15px;
+                }
+                &.icon-email {
+                    background-image: $icon-email;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 11.5px;
+                    height: 12px;
+                    top: 20px;
+                    left: 15px;
+                    padding-left: 16px;
+                }
+                &.icon-phone {
+                    background-image: $icon-phone;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 15px;
+                    height: 15px;
+                    top: 18px;
+                    left: 14px;
+                }
+            }
+        }
+    
+        .text-alert {
+            color: $primary-red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            .icon-error {
+                background-image: $icon-error;
+                background-repeat: no-repeat;
+                width: 17px;
+                height: 17px;
+                margin-right: 5px;
+            }
+            p{
+                margin:0;
+            }
+        }
+    
+    
+        // error
+        .inputErrorOwnerName {
+            @include styleInputError()
+        }
+
+        .inputErrorLastName {
+            @include styleInputError()
+        }
+
+        .inputErrorEmail {
+            @include styleInputError()
+        }
+
+        .inputErrorPhone {
+            @include styleInputError()
+        }
+
+        .inputErrorAddress {
+            @include styleInputError()
+        }
+
+        .inputErrorPassword {
+            @include styleInputError()
+        }
+
+    }
+
+    .text-area {
+        padding: 0 !important;
+        height: 100px !important;
+        border-radius: 10px !important;
+    }
+
+}
+
