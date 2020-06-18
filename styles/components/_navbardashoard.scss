@@ -1,0 +1,98 @@
+.navbar{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.35);
+
+    .nav-content {
+        margin-left: 2%;
+    }
+
+    .nav-link {
+        padding: 0;
+        margin-left: -25%;
+    }
+
+    .icon {
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        &.icon-logout {
+            background-image: $icon-signout;
+            padding: 10px;
+            width: 20px;
+            height: 20px;
+            top: 18px;
+        }
+
+        &.icon-division {
+            background-image: $icon-division;
+            width: 1px;
+            height: 100%;
+            top: 18px;
+        }
+    }
+
+    .img-admin {
+        width: 10%;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .administrator-name {
+        font-size: 15.5px;
+        font-weight: 500;
+    }
+
+    &.background-nav {
+        background-color: $primary-blue;
+    }
+
+    .navbar-toggler {
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .cursor {
+        cursor: pointer;
+    }
+        
+    .toggler {
+        .navbar-toggler-icon {
+            background-image: $icon-toggle-mobile;
+        }
+        border: 0
+    }
+
+    .nav-link{
+        color: $white !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+
+        &:focus, &:active {
+            color: $white !important;
+        }
+    }
+
+    .btn-logout {
+        border-radius: 50px !important;
+        min-width: 25px;
+        min-height: 25x;
+    }
+
+}
+
+@include desktop {
+    .navbar {
+
+        .nav-content {
+            margin-left: 75%;
+        }
+    }
+}

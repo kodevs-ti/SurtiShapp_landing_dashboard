@@ -1,4 +1,3 @@
-import React from 'react'
 import NavbarLanding from '../components/NavbarLanding'
 import Layout from '../components/Layout/Container'
 import imgPormotionSignUp from '../public/img/common/promotion-up.svg'
