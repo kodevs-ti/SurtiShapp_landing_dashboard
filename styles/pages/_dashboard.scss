@@ -1,0 +1,10 @@
+body {
+    background-color: #37404D;
+}
+
+.body-dash {
+    background-color: $white-light;
+    width: calc(100vw - 65%);
+    height: 95%;
+    border-radius: 25px;
+}
