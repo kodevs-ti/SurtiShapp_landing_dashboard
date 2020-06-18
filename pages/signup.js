@@ -29,14 +29,14 @@ export default function signUp () {
           <div className='col-12 col-lg-6 bg-login p-5'>
             <h6 className='mb-4'>Innova tu negocio con  <strong className='title-login'>SurtiShapp</strong></h6>
             <form className='form-login d-flex flex-column align-content-center' onSubmit={formik.handleSubmit}>
-              <div className='form-group'>
+              <div className='form-group mb-5'>
                 <label className='label-style'>Nombre deL NEGOCIO</label>
                 <div className='icon-inside-input'>
                   <span className='icon icon-user' />
                   <input
                     type='text'
                     name='nameStore'
-                    className={`form-control inputStyle ${classNameStoreName}`}
+                    className={`form-control inputStyle ${classNameStoreName} mb-5`}
                     placeholder='Mi Tiendita'
                     value={formik.values.nameStore}
                     onChange={formik.handleChange}
@@ -53,7 +53,6 @@ export default function signUp () {
                 ) : null
               }
               <button type='submit' className='btn-gradient mt-5 align-self-center'>SIGUIENTE <i className='fas fa-arrow-right ml-2' /></button>
-              <label class='mdb-main-label'>Example label</label>
             </form>
           </div>
           <div className='col-6 d-none d-lg-block bg-promotion d-lg-flex flex-lg-column p-5'>

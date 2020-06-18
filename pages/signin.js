@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from 'next/router'
 import NavbarLanding from '../components/NavbarLanding'
 import Layout from '../components/Layout/Container'
 import imgPormotionLogin from '../public/img/common/promotion-in-login.svg'
@@ -75,7 +76,7 @@ export default function signIn () {
             </form>
             <div className='footer-login wh-100 d-flex flex-column text-center align-items-center p-5 mt-5'>
               <div><p className='text-white'>¿Aún no tienes una cuenta?</p></div>
-              <div><a className='link-register'>¡Registra tu negocio aquí!</a></div>
+              <div><a className='link-register' onClick={() => Router.push('/signup')}>¡Registra tu negocio aquí!</a></div>
             </div>
           </div>
           <div className='col-6 d-none d-lg-block bg-promotion d-lg-flex flex-lg-column p-5'>
