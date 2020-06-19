@@ -1,6 +1,6 @@
-import { Navbar, Nav } from 'react-bootstrap'
-import logo from '../public/img/common/logo-landing.svg'
-import logoMobile from '../public/img/common/logo-mobile.svg'
+
+import Router from 'next/router'
+
 import petalLeft from '../public/img/common/petals-left.svg'
 import petalRigth from '../public/img/common/petals-rigth.svg'
 import dashMobile from '../public/img/common/dash-mobile.svg'
@@ -20,23 +20,13 @@ import petalBottom from '../public/img/common/petal-bottom.svg'
 import footerLogo from '../public/img/common/logo-footer.svg'
 import faceboock from '../public/img/icon/faceboock-icon.svg'
 import youtube from '../public/img/icon/youtube-icon.svg'
+import NavbarLanding from './NavbarLanding'
 
-export default function NavbarLanding () {
+export default function LandingBody () {
   return (
     <>
-      <Navbar className='navbar background-nav justify-content-start' collapseOnSelect expand='lg' variant='dark'>
-        <Navbar.Toggle aria-controls='responsive-navbar-nav' className='toggler'></Navbar.Toggle>
-        <Navbar.Brand href='#home'><img src={logo} className='d-none d-lg-block' /><img src={logoMobile} className='d-lg-none logo-mobile pt-1' /> </Navbar.Brand>
-        <Navbar.Collapse id='responsive-navbar-nav'>
-          <span className='icon-rigth' />
-          <Nav className='ml-auto'>
-            <Nav.Link href='#deets' className='mr-2'>REGISTRARME</Nav.Link>
-            <Nav.Link className='btn-login ml-5 mr-5' eventKey={2} href='#memes'>
-              <span>LOGIN</span>
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <NavbarLanding />
+
       <div className='row p-0 m-0 branding'>
         <div className='branding-blur d-flex justify-content-center'>
           <div className='col-md-6 d-none d-md-block mt-auto mb-auto pt-5 img-branding ml-lg-5 pl-lg-5'>
@@ -56,9 +46,9 @@ export default function NavbarLanding () {
 
       <div className='row align-items-center p-0 m-0 stadistic'>
         <div className='col-12'>
-          <div className='titles-stadistics mx-2 ml-md-5 my-4'>
+          <div className='titles-stadistics mx-2 ml-md-5 my-4 align-items-start'>
             <h1>El valor de tu negocio:</h1>
-            <h2>El retail tradicional</h2>
+            <h2>El comercio tradicional</h2>
           </div>
         </div>
         <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row '>
@@ -107,13 +97,14 @@ export default function NavbarLanding () {
           <img className='img-fluid p-2 my-4' src={preview} />
         </div>
         <div className='col-12 col-lg-6 d-flex flex-column align-items-center text-white text-center text-lg-left pr-lg-5'>
-          <h2 className='mb-5'>¿Innovar tu negocio? <strong>SurtiShapp</strong> te ayuda</h2>
+          <h2 className='mb-5 align-self-lg-start'>¿Innovar tu negocio? <strong>SurtiShapp</strong> te ayuda</h2>
           <p className='regular-size mb-5'>SurtiShapp es una solución digital personalizada que integra el
             mundo Online y Offline para ayudar a micronegocios en el<strong> control de su inventario</strong>, a <strong>agilizar el proceso de venta </strong>
             mediante un escaneado fácil y rápido de tus productos, además de <strong>generar tus propias ofertas </strong>todo esto y mucho más, <strong>¡tan sólo con tu dispositivo móvil! </strong>
             Atrévete a superar las barreras del mercado actual con las mismas ventajas
             que Internet puede ofrecer.
           </p>
+          <button className='btn-register mt-0 mb-5 mr-2 align-self-lg-start' onClick={() => Router.push('/signup')}>¡Registrarme ya!<i className='fas fa-arrow-right ml-2' /></button>
         </div>
       </div>
 
@@ -221,7 +212,7 @@ export default function NavbarLanding () {
       <div className='row align-items-center p-0 m-0 footer'>
         <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row '>
           <div className='footer-slogan text-center text-lg-left mx-2 ml-md-5 my-4'>
-            <h2 className='text-center text-white'>Sé un comerciante diferente, innova tu negocio con <p>Surtishapp</p></h2>
+            <h2 className='text-center text-white'>Sé un comerciante diferente, innova tu negocio con <p>SurtiShapp</p></h2>
             <img className='img-fluid img-bottom' src={petalBottom} />
           </div>
         </div>
@@ -229,12 +220,14 @@ export default function NavbarLanding () {
           <button className='btn-prueba mt-0 mb-4 mr-2'>¡Comienza tu prueba gratuita!<i className='fas fa-arrow-right ml-2' /></button>
           <button className='btn-reserva mt-0 mb-4 ml-2'>¡Reserva una demo gratuita!<i className='fas fa-arrow-right ml-2' /></button>
         </div>
-        <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row pb-5'>
-          <img className='img-fluid img-footer-logo my-2' src={footerLogo} />
-          <p className='style-footer my-2'>© 2020 Devixim CDMX. Tel .: +961 103 13 54</p>
-          <div className='text-center mt-5 align-self-end content-social-networks'>
-            <img className='img-footer-faceboock my-2 mr-3' src={faceboock} />
-            <img className='img-footer-youtube my-2 ml-3' src={youtube} />
+        <div className='col-12'>
+          <div className='d-flex flex-column align-items-center'>
+            <img className='img-fluid img-footer-logo' src={footerLogo} />
+            <p className='style-footer py-2'>© 2020 Devixim CDMX. Tel .: +961 103 13 54</p>
+          </div>
+          <div className='text-center my-5 content-social-networks'>
+            <img className='img-footer-faceboock mr-3' src={faceboock} />
+            <img className='img-footer-youtube ml-3' src={youtube} />
           </div>
         </div>
       </div>

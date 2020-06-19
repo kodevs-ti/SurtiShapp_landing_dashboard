@@ -1,12 +1,10 @@
 import Layout from '../components/Layout/Container'
-
-import Navbar from '../components/Navbar'
+import LandingBody from '../components/LandingBody'
 
 export default function Landing () {
   return (
     <Layout>
-      <Navbar />
-
+      <LandingBody />
     </Layout>
   )
 }
