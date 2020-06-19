@@ -1,46 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Router, { useRouter } from 'next/router'
 import NavbarLanding from '../components/NavbarLanding'
 import Layout from '../components/Layout/Container'
 import imgPormotionSignUp from '../public/img/common/promotion-up.svg'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import BeatLoader from 'react-spinners/BeatLoader'
+
+import { createAccount } from '../services/users'
 
 export default function signupowner () {
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+  const { store } = router.query
   // validation for phone number
   const phoneRegEx = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
   // validation
   const formik = useFormik({
     initialValues: {
-      ownerName: '',
+      firstName: '',
       lastName: '',
       email: '',
       phone: '',
-      address: '',
+      location: '',
       password: '',
-      passwordConfirm: ''
+      confirmationPassword: ''
     },
     validationSchema: Yup.object({
-      ownerName: Yup.string().required('Campo Obligatorio'),
-      lastName: Yup.string().required('Campo Obligatorio'),
-      email: Yup.string().email().required('Campo Obligatorio'),
-      phone: Yup.string().required('Campo Obligatorio'),
-      address: Yup.string().required('Campo Obligatorio'),
-      password: Yup.string().required('Campos Obligatorios'),
-      passwordConfirm: Yup.string().required('Campos Obligatorios')
+      firstName: Yup.string().required('Requerido'),
+      lastName: Yup.string().required('Requerido'),
+      email: Yup.string().email().required('Requerido'),
+      phone: Yup.string().matches(phoneRegEx, 'Inválido').required('Requerido'),
+      location: Yup.string().required('Requerido'),
+      password: Yup.string().required('Requerido'),
+      confirmationPassword: Yup.string().required('Requerido').oneOf([Yup.ref('password')], 'La Contraseña no Coincide')
     }),
-    onSubmit: value => {
-      console.log('enviando')
-      console.log(value)
+    onSubmit: async value => {
+      try {
+        setIsLoading(true)
+        const dataTosend = { ...value, store }
+        const response = await createAccount(dataTosend)
+        const responseJSON = await response.json()
+        const { success } = responseJSON
+        setIsLoading(false)
+        if (success) {
+          Router.push('/signin')
+        }
+      } catch (error) {
+        console.error('Error: ', error)
+      }
     }
   })
 
-  const classNameOwnerName = formik.touched.ownerName && formik.errors.ownerName ? 'inputErrorOwnerName' : null
+  const classNameOwnerName = formik.touched.firstName && formik.errors.firstName ? 'inputErrorOwnerName' : null
   const classNameLastName = formik.touched.lastName && formik.errors.lastName ? 'inputErrorLastName' : null
   const classNameEmail = formik.touched.email && formik.errors.email ? 'inputErrorEmail' : null
   const classNamePhone = formik.touched.phone && formik.errors.phone ? 'inputErrorPhone' : null
-  const classNameAddress = formik.touched.address && formik.errors.address ? 'inputErrorAddress' : null
+  const classNameAddress = formik.touched.location && formik.errors.location ? 'inputErrorAddress' : null
   const classNamePassword = formik.touched.password && formik.errors.password ? 'inputErrorPassword' : null
-  const classNamePasswordConfirm = formik.touched.passwordConfirm && formik.errors.passwordConfirm ? 'inputErrorPasswordConfirm' : null
+  const classNamePasswordConfirm = formik.touched.confirmationPassword && formik.errors.confirmationPassword ? 'inputErrorPasswordConfirm' : null
 
   return (
     <Layout>
@@ -56,14 +74,21 @@ export default function signupowner () {
                   <span className='icon icon-user' />
                   <input
                     type='text'
-                    name='ownerName'
+                    name='firstName'
                     className={`form-control inputStyle ${classNameOwnerName}`}
                     placeholder='John'
-                    value={formik.values.ownerName}
+                    value={formik.values.firstName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
                 </div>
+                {
+                  formik.touched.firstName && formik.errors.firstName ? (
+                    <div className='text-alert-input'>
+                      <p>{formik.errors.firstName}</p>
+                    </div>
+                  ) : null
+                }
               </div>
               <div className='form-group'>
                 <label className='label-style'>APELLIDOS</label>
@@ -79,6 +104,13 @@ export default function signupowner () {
                     onBlur={formik.handleBlur}
                   />
                 </div>
+                {
+                  formik.touched.lastName && formik.errors.lastName ? (
+                    <div className='text-alert-input'>
+                      <p>{formik.errors.lastName}</p>
+                    </div>
+                  ) : null
+                }
               </div>
               <div className='form-group'>
                 <label className='label-style'>EMAIL</label>
@@ -94,6 +126,13 @@ export default function signupowner () {
                     onBlur={formik.handleBlur}
                   />
                 </div>
+                {
+                  formik.touched.email && formik.errors.email ? (
+                    <div className='text-alert-input'>
+                      <p>{formik.errors.email}</p>
+                    </div>
+                  ) : null
+                }
               </div>
               <div className='form-group'>
                 <label className='label-style'>Teléfono</label>
@@ -109,18 +148,32 @@ export default function signupowner () {
                     onBlur={formik.handleBlur}
                   />
                 </div>
+                {
+                  formik.touched.phone && formik.errors.phone ? (
+                    <div className='text-alert-input'>
+                      <p>{formik.errors.phone}</p>
+                    </div>
+                  ) : null
+                }
               </div>
               <div className='form-group'>
                 <label className='label-style'>Dirección</label>
                 <input
                   type='text'
-                  name='address'
+                  name='location'
                   className={`form-control inputStyle ${classNameAddress} text-area`}
                   placeholder='Col, av, mza, tl, etc...'
-                  value={formik.values.address}
+                  value={formik.values.location}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
+                {
+                  formik.touched.location && formik.errors.location ? (
+                    <div className='text-alert-input'>
+                      <p>{formik.errors.location}</p>
+                    </div>
+                  ) : null
+                }
               </div>
               <div className='form-group'>
                 <label className='label-style'>Contraseña</label>
@@ -135,6 +188,13 @@ export default function signupowner () {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
+                  {
+                    formik.touched.password && formik.errors.password ? (
+                      <div className='text-alert-input'>
+                        <p>{formik.errors.password}</p>
+                      </div>
+                    ) : null
+                  }
                 </div>
               </div>
               <div className='form-group'>
@@ -143,13 +203,20 @@ export default function signupowner () {
                   <span className='icon icon-padlock' />
                   <input
                     type='password'
-                    name='passwordConfirm'
+                    name='confirmationPassword'
                     className={`form-control inputStyle ${classNamePasswordConfirm}`}
                     placeholder='-----'
-                    value={formik.values.passwordConfirm}
+                    value={formik.values.confirmationPassword}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
+                  {
+                    formik.touched.confirmationPassword && formik.errors.confirmationPassword ? (
+                      <div className='text-alert-input'>
+                        <p>{formik.errors.confirmationPassword}</p>
+                      </div>
+                    ) : null
+                  }
                 </div>
               </div>
               {
@@ -160,6 +227,13 @@ export default function signupowner () {
                   </div>
                 ) : null
               }
+              <div className='mt-4 w-100 d-flex justify-content-center'>
+                <BeatLoader
+                  size={15}
+                  color='#00A3FF'
+                  loading={isLoading}
+                />
+              </div>
               <button type='submit' className='btn-gradient mt-5 p-3 align-self-center'>FINALIZAR REGISTRO</button>
             </form>
           </div>
