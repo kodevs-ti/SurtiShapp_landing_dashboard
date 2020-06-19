@@ -6,7 +6,7 @@ export default function Aside (props) {
       <div className='admin-menu'>
         <h2 className='title-menu mb-5'>SurtiShap Administrator</h2>
         <ul className='menu'>
-          <li className='d-flex align-items-center'>
+          <li className='d-flex align-items-center item-route' onClick={() => Router.push('/dashboard/sellers')}>
             <span className='icon icon-admin mr-4' />
             <span>Vendedores</span>
           </li>
