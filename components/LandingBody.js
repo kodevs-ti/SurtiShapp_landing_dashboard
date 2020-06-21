@@ -51,7 +51,7 @@ export default function LandingBody () {
             <h2>El comercio tradicional</h2>
           </div>
         </div>
-        <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row '>
+        <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row font-size-card-stadistics'>
           <div className='img-content'>
             <img className='mb-4' src={graphicsMan} />
           </div>
@@ -115,7 +115,7 @@ export default function LandingBody () {
             <h3>Mejorando la experiencia de venta y compra</h3>
           </div>
         </div>
-        <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row mb-5'>
+        <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row mb-5 font-size-card-features'>
           <div className='card-content d-flex flex-column align-items-center flex-md-row'>
             <div className='content-card-2019 d-flex flex-column align-items-center'>
               <div className='card-charts d-flex flex-column background-blue'>
@@ -203,8 +203,8 @@ export default function LandingBody () {
         </div>
         <div className='col-12 col-lg-6 d-flex flex-column align-items-center text-white text-center text-lg-left pr-lg-5'>
           <h3 className='mb-5'><strong>Fluye libremente. No necesitas de más dispositivos externos</strong></h3>
-          <p className='regular-size mb-5'>Sabemos que el espacio e es reducido, por ello ideamos la mejor manera de controlar el flujo de tu venta, desde productos que necesitan ser pesados, hasta aquellos que parecen pasar desapercibidos,.</p>
-          <p className='regular-size mb-5'>No hay necesidad de comprar nuevos dispositivos electrónicos para comunicarse con SurtiShapp, como básculas electrónicas u otros equipos que no te dejan el espacio suficiente para fluir libremente en tu espacio de trabajo.</p>
+          <p className='regular-size mb-5'>Ideamos la mejor manera de controlar el flujo de tu venta, desde productos que necesitan ser pesados, hasta aquellos que parecen pasar desapercibidos,.</p>
+          <p className='regular-size mb-5'>Fluye libremente en tu espacio de trabajo,, todo lo que necesitas para vender esta en tu SurtiShapp.</p>
           <p className='regular-size mb-5'>No te preocupes, ¡ Nuestro algoritmo de equivalencias, lo resulve todo!</p>
         </div>
       </div>

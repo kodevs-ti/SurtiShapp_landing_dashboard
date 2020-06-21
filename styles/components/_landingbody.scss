@@ -55,6 +55,10 @@
     background-color: $secondary-blue;
     width: 100%;
     color: $gray-light;
+
+    .font-size-card-stadistics {
+        font-size: 18px;
+    }
     
     .card-img-chart {
         max-width: 140px;
@@ -125,6 +129,11 @@
     background-color: $secondary-blue;
     width: 100%;
     color: $gray-light;
+
+    .font-size-card-features {
+        font-size: 17px;
+        font-weight: 500;
+    }
     
     .card-img-chart {
         max-width: 140px;
