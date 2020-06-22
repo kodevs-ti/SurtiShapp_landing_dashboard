@@ -98,7 +98,7 @@ export default function LandingBody () {
         </div>
         <div className='col-12 col-lg-6 d-flex flex-column align-items-center text-white text-center text-lg-left pr-lg-5'>
           <h2 className='mb-5 align-self-lg-start'>¿Innovar tu negocio? <strong>SurtiShapp</strong> te ayuda</h2>
-          <p className='regular-size mb-5'>SurtiShapp es una solución digital personalizada que integra el
+          <p className='regular-size p-3 mb-5 mr-lg-5 pr-lg-5'>SurtiShapp es una solución digital personalizada que integra el
             mundo Online y Offline para ayudar a micronegocios en el<strong> control de su inventario</strong>, a <strong>agilizar el proceso de venta </strong>
             mediante un escaneado fácil y rápido de tus productos, además de <strong>generar tus propias ofertas </strong>todo esto y mucho más, <strong>¡tan sólo con tu dispositivo móvil! </strong>
             Atrévete a superar las barreras del mercado actual con las mismas ventajas
@@ -167,7 +167,7 @@ export default function LandingBody () {
         </div>
       </div>
 
-      <div className='row align-items-center p-0 m-0 how-is'>
+      <div className='row align-items-center p-5 m-0 how-is'>
         <div className='col-12'>
           <div className='text-white mx-2 ml-md-5 my-5'>
             <h2><strong>SurtiShapp</strong></h2>
@@ -185,7 +185,7 @@ export default function LandingBody () {
         </div>
       </div>
 
-      <div className='row align-items-center p-0 m-0 how-is'>
+      <div className='row align-items-center p-5 m-0 how-is'>
         <div className='col-12 col-lg-6 d-flex flex-column align-items-center text-white text-center text-lg-left pr-lg-5'>
           <h3 className='mb-5'><strong>Genera tus propias ofertas</strong></h3>
           <p className='regular-size mb-5'>Con SurtiShapp Administrator puedes elegir cualquier producto que desees poner en oferta; ¡evita las mermas o pérdidas!.</p>
@@ -197,14 +197,14 @@ export default function LandingBody () {
         </div>
       </div>
 
-      <div className='row align-items-center p-0 m-0 how-is'>
+      <div className='row align-items-center p-5 m-0 how-is'>
         <div className='col-12 col-lg-6 d-flex flex-column align-items-center justify-content-center'>
           <img className='img-fluid p-2 my-4' src={menChecking} />
         </div>
         <div className='col-12 col-lg-6 d-flex flex-column align-items-center text-white text-center text-lg-left pr-lg-5'>
           <h3 className='mb-5'><strong>Fluye libremente. No necesitas de más dispositivos externos</strong></h3>
-          <p className='regular-size mb-5'>Ideamos la mejor manera de controlar el flujo de tu venta, desde productos que necesitan ser pesados, hasta aquellos que parecen pasar desapercibidos,.</p>
-          <p className='regular-size mb-5'>Fluye libremente en tu espacio de trabajo,, todo lo que necesitas para vender esta en tu SurtiShapp.</p>
+          <p className='regular-size mb-5'>Ideamos la mejor manera de controlar el flujo de tu venta, desde productos que necesitan ser pesados, hasta aquellos que parecen pasar desapercibidos.</p>
+          <p className='regular-size mb-5'>Fluye libremente en tu espacio de trabajo, todo lo que necesitas para vender esta en tu SurtiShapp.</p>
           <p className='regular-size mb-5'>No te preocupes, ¡ Nuestro algoritmo de equivalencias, lo resulve todo!</p>
         </div>
       </div>
@@ -216,9 +216,9 @@ export default function LandingBody () {
             <img className='img-fluid img-bottom' src={petalBottom} />
           </div>
         </div>
-        <div className='col-12 d-flex flex-column align-items-center justify-content-center flex-lg-row pb-5'>
-          <button className='btn-prueba mt-0 mb-4 mr-2'>¡Comienza tu prueba gratuita!<i className='fas fa-arrow-right ml-2' /></button>
-          <button className='btn-reserva mt-0 mb-4 ml-2'>¡Reserva una demo gratuita!<i className='fas fa-arrow-right ml-2' /></button>
+        <div className='col-12 d-flex flex-column text-center align-items-center justify-content-center flex-lg-row pb-5'>
+          <button className='btn-prueba mt-0 mb-4 mr-2' onClick={() => Router.push('/signup')}>¡Comienza tu prueba gratuita!<i className='fas fa-arrow-right ml-2' /></button>
+          <button className='btn-reserva mt-0 mb-4 ml-2' onClick={() => Router.push('/signup')}>¡Reserva una demo gratuita!<i className='fas fa-arrow-right ml-2' /></button>
         </div>
         <div className='col-12'>
           <div className='d-flex flex-column align-items-center'>

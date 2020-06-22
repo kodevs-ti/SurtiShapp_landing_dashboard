@@ -37,7 +37,7 @@ export default function signUp () {
                     type='text'
                     name='nameStore'
                     className={`form-control inputStyle ${classNameStoreName} mb-5`}
-                    placeholder='Mi Tiendita'
+                    placeholder='Mi Negocio'
                     value={formik.values.nameStore}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}

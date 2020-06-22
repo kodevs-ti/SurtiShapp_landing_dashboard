@@ -1,0 +1,177 @@
+.sellers-container {
+    .buttons-wrapper {
+        padding: 0 20px;
+        
+        .wrapper-warning {
+            width: 35% !important;
+            height: 90px;
+            margin-top: 20px;
+    
+            .warning-content {
+                background-color: $gray-medium-light;
+                color: $gray-light;
+                font-size: 18px;
+                font-weight: 500;
+                padding: 15px;
+                border-radius: 5px;
+                text-align: justify;
+        
+                p{
+                    margin: 0;
+                    padding: 25px;
+                }
+            }
+        }
+    
+        .btn-menu {
+            color: $white;
+            border: none;
+            border-radius: 5px;
+            width: 35% !important;
+            height: 90px;
+            margin-top: 20px;
+            padding: 0 0 0 20px;
+                   
+            .btn-txt-size {
+                font-size: 16.5px;
+                font-weight: 500;
+            }
+    
+            &.sale{
+                background-color: $primary-blue;
+                box-shadow: 0px 20px 36px rgba(0, 0, 0, 0.07);
+            }
+            &.register {
+                background-color: $white;
+                color: $black;
+                font-weight: 200;
+                box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.08);
+            }
+        }
+    
+        .icon {
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 30px;
+            margin: 5px;
+            width: 45px;
+            height: auto;
+            background-position: center;
+    
+            &.icon-new-seller {
+                background-image: $icon-new-seller;
+    
+            }
+            &.scan-icon {
+                //background-image: $icon-scan;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+    }
+    
+    .searching {
+        position: absolute;
+        width: 450px;
+        height: 38px;
+        
+        background: #FFFFFF;
+        box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+        border-radius: 50px;
+    }
+    
+    .head-style {
+        background: #F8F8F8;
+        border-radius: 5px 5px 0px 0px;
+    
+        .tr-titles {
+            color: $primary-blue;
+            font-weight: 500;
+            font-size: 15px;
+        }
+            
+        th {
+            border: 0px !important;
+        }
+    }
+    
+    .bg-line-bottom {
+        background-color: $white-light;
+    }
+    
+    .bottom-table-hr {
+        background-color: $gray-medium-light;
+        width: 100%;
+        height: 0.08px;   
+    }
+    
+    .tbody-style {
+        background: rgba($white, 0.95);
+        box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.075);
+        border: 0px solid;
+        border-radius: 80px !important;
+    
+        .img-seller-dash {
+            width: 50px;
+        }
+    
+        .seller-name {
+            font-weight: normal;
+            font-size: 17px;
+            line-height: 25px;
+            color: $gray-dark;
+        }
+    
+        .seller-email {
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 18px;
+            color: $primary-blue;
+        }
+    
+    }
+    
+    th {
+       width: 25%;
+       text-align: center;
+    
+       .general {
+        width: 35% !important;
+       }
+    }
+    
+    .custom-control-input:checked~.custom-control-label::before {
+        color: #fff;
+        border-color: #99E77D;
+        background-color: #99E77D;
+    }
+    
+    .icon {
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 5px;
+        margin: 5px;
+        width: 25px;
+        height: 25px;
+        
+        &.icon-edit {
+            background-image: $icon-edit;
+        }
+    
+        &.icon-delete {
+            background-image: $icon-delete;
+        }
+    }
+
+    .searchSeller {
+        position: absolute;
+        width: 450px;
+        height: 38px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+        border-radius: 50px;
+        border: 0px;
+    }
+}
