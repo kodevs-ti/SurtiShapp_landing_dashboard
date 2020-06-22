@@ -1,25 +1,46 @@
+import React, { useState } from 'react'
+import Router from 'next/router'
 import NavbarLanding from '../components/NavbarLanding'
 import Layout from '../components/Layout/Container'
 import imgPormotionSignUp from '../public/img/common/promotion-up.svg'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import BeatLoader from 'react-spinners/BeatLoader'
+
+import { create } from '../services/stores'
 
 export default function signUp () {
+  const [isLoading, setIsLoading] = useState(false)
   // validation
   const formik = useFormik({
     initialValues: {
-      nameStore: ''
+      name: ''
     },
     validationSchema: Yup.object({
-      nameStore: Yup.string().required('Campo Obligatorio')
+      name: Yup.string().required('Campo Obligatorio')
     }),
-    onSubmit: value => {
-      console.log('enviando')
-      console.log(value)
+    onSubmit: async value => {
+      try {
+        setIsLoading(true)
+        const response = await create(value)
+        const responseJSON = await response.json()
+        const { success, data } = responseJSON
+        setIsLoading(false)
+        if (success) {
+          Router.push({
+            pathname: '/signupowner',
+            query: {
+              store: data.store._id
+            }
+          })
+        }
+      } catch (error) {
+        console.error('Error: ', error)
+      }
     }
   })
 
-  const classNameStoreName = formik.touched.nameStore && formik.errors.nameStore ? 'inputErrorEmail' : null
+  const classNameStoreName = formik.touched.name && formik.errors.name ? 'inputErrorEmail' : null
 
   return (
     <Layout>
@@ -35,22 +56,31 @@ export default function signUp () {
                   <span className='icon icon-user' />
                   <input
                     type='text'
-                    name='nameStore'
+                    name='name'
                     className={`form-control inputStyle ${classNameStoreName} mb-5`}
                     placeholder='Mi Negocio'
-                    value={formik.values.nameStore}
+                    value={formik.values.name}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
                 </div>
               </div>
               {
-                formik.errors.nameStore ? (
+                formik.errors.name ? (
                   <div className='text-alert'>
                     <span className='icon-error' />
-                    <p>Campos obligatorios</p>
+                    <p>{formik.errors.name}</p>
                   </div>
                 ) : null
+              }
+              {
+                <div className='mt-4 w-100 d-flex justify-content-center'>
+                  <BeatLoader
+                    size={15}
+                    color='#00A3FF'
+                    loading={isLoading}
+                  />
+                </div>
               }
               <button type='submit' className='btn-gradient mt-5 align-self-center'>SIGUIENTE <i className='fas fa-arrow-right ml-2' /></button>
             </form>

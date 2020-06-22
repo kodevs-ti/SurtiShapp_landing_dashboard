@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Router from 'next/router'
 import NavbarLanding from '../components/NavbarLanding'
 import Layout from '../components/Layout/Container'
 import imgPormotionLogin from '../public/img/common/promotion-in-login.svg'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import BeatLoader from 'react-spinners/BeatLoader'
+
+import { signIn as login } from '../services/users'
+import { setToken } from '../lib'
 
 export default function signIn () {
+  const [errorMessage, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   // validation
   const formik = useFormik({
     initialValues: {
@@ -14,12 +20,26 @@ export default function signIn () {
       password: ''
     },
     validationSchema: Yup.object({
-      email: Yup.string().email().required('Campo Obligatorio'),
-      password: Yup.string().required('Campos Obligatorios')
+      email: Yup.string().email().required('Requerido'),
+      password: Yup.string().required('Requerido')
     }),
-    onSubmit: value => {
-      console.log('enviando')
-      console.log(value)
+    onSubmit: async value => {
+      try {
+        setError('')
+        setIsLoading(true)
+        const response = await login(value)
+        const responseJSON = await response.json()
+        const { success, data } = responseJSON
+        setIsLoading(false)
+        if (success) {
+          setToken(data.token)
+          Router.push('/dashboard')
+          return
+        }
+        setError('Credenciales Invalidas')
+      } catch (error) {
+        console.error('Error: ', error)
+      }
     }
   })
 
@@ -48,6 +68,13 @@ export default function signIn () {
                     onBlur={formik.handleBlur}
                   />
                 </div>
+                {
+                  formik.touched.email && formik.errors.email ? (
+                    <div className='text-alert-input'>
+                      <p>{formik.errors.email}</p>
+                    </div>
+                  ) : null
+                }
               </div>
               <div className='form-group'>
                 <label className='label-style'>Contraseña</label>
@@ -63,6 +90,13 @@ export default function signIn () {
                     onBlur={formik.handleBlur}
                   />
                 </div>
+                {
+                  formik.touched.password && formik.errors.password ? (
+                    <div className='text-alert-input'>
+                      <p>{formik.errors.password}</p>
+                    </div>
+                  ) : null
+                }
               </div>
               {
                 formik.errors.email && formik.errors.password ? (
@@ -70,8 +104,20 @@ export default function signIn () {
                     <span className='icon-error' />
                     <p>Campos obligatorios</p>
                   </div>
+                ) : errorMessage ? (
+                  <div className='text-alert'>
+                    <span className='icon-error' />
+                    <p>{errorMessage}</p>
+                  </div>
                 ) : null
               }
+              <div className='mt-4 w-100 d-flex justify-content-center'>
+                <BeatLoader
+                  size={15}
+                  color='#00A3FF'
+                  loading={isLoading}
+                />
+              </div>
               <button type='submit' className='btn-gradient mt-5 align-self-center'>Iniciar Sesión</button>
             </form>
             <div className='footer-login wh-100 d-flex flex-column text-center align-items-center p-5 mt-5'>

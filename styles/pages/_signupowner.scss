@@ -86,27 +86,13 @@
     
     
         // error
-        .inputErrorOwnerName {
-            @include styleInputError()
-        }
-
-        .inputErrorLastName {
-            @include styleInputError()
-        }
-
-        .inputErrorEmail {
-            @include styleInputError()
-        }
-
-        .inputErrorPhone {
-            @include styleInputError()
-        }
-
-        .inputErrorAddress {
-            @include styleInputError()
-        }
-
-        .inputErrorPassword {
+        .inputErrorOwnerName,
+        .inputErrorLastName,
+        .inputErrorEmail,
+        .inputErrorPhone,
+        .inputErrorAddress,
+        .inputErrorPassword,
+        .inputErrorPasswordConfirm {
             @include styleInputError()
         }
 
@@ -116,6 +102,21 @@
         padding: 0 !important;
         height: 100px !important;
         border-radius: 10px !important;
+    }
+
+    .text-alert-input {
+        color: $red-light;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 12px;
+        padding: 0 0 0 17px;
+        p{
+            margin:0;
+        }
     }
 
 }
