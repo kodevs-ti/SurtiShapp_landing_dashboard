@@ -13,10 +13,9 @@ export default function Vendedores (props) {
           <div className='col-12 '>
             <div className='d-flex justify-content-between buttons-wrapper'>
               <div className='wrapper-warning d-flex justify-content-center'>
-                <div className='warning-content d-flex align-items-center'>
-                  {/* <p>{content}</p> */}
+                {/* <div className='warning-content d-flex align-items-center'>
                   <p>Aún no tienes Vendedores registrados</p>
-                </div>
+                </div> */}
               </div>
               <button onClick={() => Router.push('/sale')} className='d-flex align-items-center btn-menu sale'>
                 <div className='mr-4 icon icon-new-seller' />
@@ -67,7 +66,7 @@ export default function Vendedores (props) {
                     <th>
                       <div className='custom-control custom-switch mt-4'>
                         <input type='checkbox' className='custom-control-input' id='customSwitch1' />
-                        <label className='custom-control-label text-white' for='customSwitch1'>.</label>
+                        <label className='custom-control-label text-white' htmlFor='customSwitch1'>.</label>
                       </div>
                     </th>
                     <th>

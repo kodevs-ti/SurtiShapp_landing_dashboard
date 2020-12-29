@@ -33,7 +33,7 @@ export default function signIn () {
         setIsLoading(false)
         if (success) {
           setToken(data.token)
-          Router.push('/dashboard')
+          Router.push('/dashboard/sellers')
           return
         }
         setError('Credenciales Invalidas')
